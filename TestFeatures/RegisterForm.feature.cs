@@ -77,8 +77,8 @@ namespace AuthSystemAutomationTests.TestFeatures
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Open AuthSystem on Register page and register user")]
         [NUnit.Framework.CategoryAttribute("scopedBidings")]
-        [NUnit.Framework.TestCaseAttribute("MaciejTest", "Testing", "test@testexample.com", "Start@12345", null)]
-        public virtual void OpenAuthSystemOnRegisterPageAndRegisterUser(string name, string lastname, string email, string password, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("MaciejTest", "Testing", "test@testexample.com", "Start@12345", "Start@12345", null)]
+        public virtual void OpenAuthSystemOnRegisterPageAndRegisterUser(string name, string lastname, string email, string password, string confirmPassword, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "scopedBidings"};
@@ -92,6 +92,7 @@ namespace AuthSystemAutomationTests.TestFeatures
             argumentsOfScenario.Add("lastname", lastname);
             argumentsOfScenario.Add("email", email);
             argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("confirmPassword", confirmPassword);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open AuthSystem on Register page and register user", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 5
 this.ScenarioInitialize(scenarioInfo);
@@ -117,13 +118,240 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("Open AuthSystem in browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
- testRunner.And(string.Format("fill up the form using the data {0} {1} {2} and {3}", name, lastname, email, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("fill up the form using the data {0} {1} {2} {3} with {4}", name, lastname, email, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
  testRunner.When("Click Register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 9
- testRunner.Then("check if message about correct registration is displayed.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("check if the home page is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open AuthSystem on Register page and register user with invalid email")]
+        [NUnit.Framework.CategoryAttribute("scopedBidings")]
+        [NUnit.Framework.TestCaseAttribute("MaciejTest", "Testing", "test12345", "Start@12345", "Start@12345", null)]
+        public virtual void OpenAuthSystemOnRegisterPageAndRegisterUserWithInvalidEmail(string name, string lastname, string email, string password, string confirmPassword, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "scopedBidings"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("lastname", lastname);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("confirmPassword", confirmPassword);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open AuthSystem on Register page and register user with invalid email", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 16
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 17
+ testRunner.Given("Open AuthSystem in browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 18
+ testRunner.And(string.Format("fill up the form using the data {0} {1} {2} {3} with {4}", name, lastname, email, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 19
+ testRunner.When("Click Register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 20
+ testRunner.Then("check if error message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open AuthSystem on Register page and register user with incorrect password")]
+        [NUnit.Framework.CategoryAttribute("scopedBidings")]
+        [NUnit.Framework.TestCaseAttribute("MaciejTest2", "Testing2", "test2@testexample.com", "1234", "1234", null)]
+        public virtual void OpenAuthSystemOnRegisterPageAndRegisterUserWithIncorrectPassword(string name, string lastname, string email, string password, string confirmPassword, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "scopedBidings"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("lastname", lastname);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("confirmPassword", confirmPassword);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open AuthSystem on Register page and register user with incorrect password", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 27
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 28
+ testRunner.Given("Open AuthSystem in browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 29
+ testRunner.And(string.Format("fill up the form using the data {0} {1} {2} {3} with {4}", name, lastname, email, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 30
+ testRunner.When("Click Register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+ testRunner.Then("check if error message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open AuthSystem on Register page and register user with not matched passwords")]
+        [NUnit.Framework.CategoryAttribute("scopedBidings")]
+        [NUnit.Framework.TestCaseAttribute("MaciejTest2", "Testing2", "test2@testexample.com", "Start@12345", "Start!09876", null)]
+        public virtual void OpenAuthSystemOnRegisterPageAndRegisterUserWithNotMatchedPasswords(string name, string lastname, string email, string password, string confirmPassword, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "scopedBidings"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("lastname", lastname);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("confirmPassword", confirmPassword);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open AuthSystem on Register page and register user with not matched passwords", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 38
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 39
+ testRunner.Given("Open AuthSystem in browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 40
+ testRunner.And(string.Format("fill up the form using the data {0} {1} {2} {3} with {4}", name, lastname, email, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
+ testRunner.When("Click Register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 42
+ testRunner.Then("check if error message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Open AuthSystem on Register page and register user without First Name or Last Nam" +
+            "e")]
+        [NUnit.Framework.CategoryAttribute("scopedBidings")]
+        [NUnit.Framework.TestCaseAttribute("", "Testing3", "test2@testexample.com", "Start@12345", "Start@12345", null)]
+        [NUnit.Framework.TestCaseAttribute("Maciej3", "", "test2@testexample.com", "Start@12345", "Start@12345", null)]
+        public virtual void OpenAuthSystemOnRegisterPageAndRegisterUserWithoutFirstNameOrLastName(string name, string lastname, string email, string password, string confirmPassword, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "scopedBidings"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("name", name);
+            argumentsOfScenario.Add("lastname", lastname);
+            argumentsOfScenario.Add("email", email);
+            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("confirmPassword", confirmPassword);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Open AuthSystem on Register page and register user without First Name or Last Nam" +
+                    "e", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+#line 49
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 50
+ testRunner.Given("Open AuthSystem in browser", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 51
+ testRunner.And(string.Format("fill up the form using the data {0} {1} {2} {3} with {4}", name, lastname, email, password, confirmPassword), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 52
+ testRunner.When("Click Register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 53
+ testRunner.Then("check if error message is displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
